@@ -1,15 +1,22 @@
-// Small progressive enhancement
-const byId = (id) => document.getElementById(id);
-
-window.addEventListener('DOMContentLoaded', () => {
-  const yearEl = byId('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  const btn = byId('cta');
-  const msg = byId('message');
-  if (btn && msg) {
-    btn.addEventListener('click', () => {
-      msg.textContent = '✨ Nice! This is a static site with a tiny bit of JS.';
-    });
-  }
-});
+// Smooth scroll + demo contact form (no backend wired yet)
+function qs(sel, root=document){return root.querySelector(sel)}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href')
+      if (id.length > 1) {
+        e.preventDefault()
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'})
+      }
+    })
+  })
+})
+function submitContact(e){
+  e.preventDefault()
+  const form = e.target
+  const data = Object.fromEntries(new FormData(form).entries())
+  const status = qs('#formStatus')
+  status.textContent = "Thanks! We'll be in touch shortly."
+  form.reset()
+  return false
+}

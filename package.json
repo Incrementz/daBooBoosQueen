@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "A minimal static website you can host **for free** on GitHub Pages.",
+  "main": "app.js",
+  "scripts": {
+     "start": "live-server --port=8080 --open=index.html",
+    "dev": "npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
