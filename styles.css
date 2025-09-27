@@ -83,11 +83,15 @@ body{
   font-size:.75rem;padding:.15rem .45rem;border-radius:6px
 }
 
-.steps .step{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start}
+.steps .step{display:grid;grid-template-columns:auto 1fr;gap:.6rem; row-gap: .25rem;
+  align-items: center;}
 .steps .num{
   width:38px;height:38px;border-radius:12px;background:var(--camo);color:#fff;
-  display:grid;place-items:center;font-weight:800
+  display:grid;place-items:center;font-weight:800; grid-column: 1; grid-row: 1;
 }
+.steps h3{ grid-column: 2; grid-row: 1; margin: 0; }
+.steps p { grid-column: 2; grid-row: 2; margin: 0; }
+
 
 .contact form.card label{display:grid;gap:.35rem;margin:.6rem 0}
 input,textarea{border:var(--border);border-radius:12px;padding:.65rem;font:inherit;background:#fff}
