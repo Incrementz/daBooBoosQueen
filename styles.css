@@ -25,10 +25,15 @@ body{
 .container{max-width:var(--container);margin:0 auto;padding:1.2rem}
 .grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
 .grid-3{display:grid;gap:1.2rem;grid-template-columns:1fr}
-@media (min-width:820px){
-  .grid-2{grid-template-columns:1.2fr .8fr}
-  .grid-3{grid-template-columns:repeat(3,1fr)}
+/* Let the header row expand on small screens */
+@media (max-width: 480px) {
+  .site-header .header-inner { min-height: var(--header-h); height: auto; padding-block: .25rem; }
+  .nav { flex-wrap: wrap; gap: .5rem; }
+  .nav a { padding: .3rem .5rem; font-size: .95rem; }
+  .brand img { height: 36px; }  /* cap logo so it doesn't inflate if header grows */
+  .brand span { display: none; } /* optional space saver */
 }
+
 
 .site-header{
   position:sticky;top:0;z-index:10;background:rgba(253,251,245,.85);
