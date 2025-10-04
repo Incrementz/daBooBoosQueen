@@ -47,8 +47,6 @@ body{
 .nav a:hover{background:#d8d5d5;box-shadow:var(--shadow)}
 
 
-
-
 .hero{padding:2.4rem 0 0.4rem;background:
   radial-gradient(1600px 400px at 20% -10%, rgba(54,71,50,.10), transparent),
   radial-gradient(1200px 300px at 80% -10%, rgba(212,175,55,.12), transparent)
@@ -152,3 +150,50 @@ input:focus,textarea:focus{outline:2px solid rgba(54,71,50,.25)}
 .btn-block{display:block;width:100%}
 
 .addons{margin-top:1rem}
+
+
+/* Toggle button base (hidden on desktop) */
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:40px; height:40px;
+  border:2px solid var(--camo, #364732);
+  border-radius:10px;
+  background:#fff;
+  color:var(--camo, #364732);
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.nav-toggle:hover{ box-shadow:0 4px 12px rgba(0,0,0,.15); transform:translateY(-1px); }
+.nav-toggle:active{ transform:none; box-shadow:0 2px 6px rgba(0,0,0,.12); }
+
+/* Mobile behavior */
+@media (max-width: 768px){
+  .header-inner{ flex-wrap:wrap; row-gap:.5rem; }
+  .nav-toggle{ display:inline-flex; }
+
+  /* Hide nav by default on mobile */
+  .nav{
+    display:none;              /* hidden until toggled */
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.5rem;
+    padding-bottom:.5rem;
+  }
+  /* Show when header is "open" */
+  .site-header.open .nav{ display:flex; }
+
+  /* Tighter link style for mobile */
+  .nav a{
+    white-space:nowrap;
+    padding:.4rem .6rem;
+    border-radius:10px;
+    font-size:.95rem;
+  }
+
+  /* Optional: hide the brand text to save space */
+  .brand span{ display:none; }
+  .brand img{ height:36px; }
+}

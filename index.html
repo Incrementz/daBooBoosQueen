@@ -7,6 +7,7 @@
   <meta name="description" content="Fast, friendly pet waste removal on the Central Coast. Founder pricing, referral rewards, and body‑cam accountability." />
   <link rel="icon" href="assets/bruh.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="toggle" href="toggle.js" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -42,6 +43,15 @@
         <img src="assets/bruh.png" alt="Da Boo Boo Queen logo" width="" height="40">
         <span>Da Boo Boos Queen</span>
       </a>
+
+        <!-- Hamburger -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+
       <nav class="nav">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
@@ -274,5 +284,7 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
   </footer>
 
   <script src="app.js"></script>
+  <script src="toggle.js"></script>
+  
 </body>
 </html>
