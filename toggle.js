@@ -37,4 +37,22 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.focus();
     }
   });
+
+  // Click image and close hamburger
+  const brandEl =
+    document.querySelector(".brand") ||
+    document.querySelector('img[alt*="Da Boo Boo Queen"]');
+
+  if (!header || !toggle || !brandEl) return;
+
+  brandEl.addEventListener("click", () => {
+    // Only do this if the mobile menu is open
+    if (header.classList.contains("open")) {
+      header.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      // optional: return focus to the toggle for keyboard users
+      // toggle.focus();
+    }
+    // let navigation proceed normally (to home, etc.)
+  });
 });
