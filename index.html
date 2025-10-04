@@ -7,6 +7,7 @@
   <meta name="description" content="Fast, friendly pet waste removal on the Central Coast. Founder pricing, referral rewards, and body‑cam accountability." />
   <link rel="icon" href="assets/bruh.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="toggle" href="toggle.js" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -42,7 +43,16 @@
         <img src="assets/bruh.png" alt="Da Boo Boo Queen logo" width="" height="40">
         <span>Da Boo Boos Queen</span>
       </a>
-      <nav class="nav">
+
+        <!-- Hamburger -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+
+       <nav id="primary-nav" class="nav" role="navigation">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#how">How it works</a>
@@ -57,7 +67,7 @@
       <div>
         <h1>Central Coast Pet Waste Removal</h1>
                 <h1><span class="accent">— yard so clean, fit for Da Queen</span></h1>
-        <p class="lead">🌱 Eco-friendly yard spray that sanitizes and deodorizes supported by founder pricing, referral rewards, and <strong>body‑cam accountability</strong> for complete transparency.</p>
+        <p class="lead">🌱Eco-friendly sanitizing spray, spotless scoops, and <strong>body-cam</strong> proof you can trust!</p>
         
         <div class="cta-row">
           <a href="https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal" class="btn btn-gold">Book a Cleanup</a>
@@ -69,17 +79,19 @@
           <li>🚐 Weekly, bi‑weekly, one‑time</li>
         </ul>
       </div>
+  <!--
       <div class="card hero-card">
         <h3>New here?</h3>
         <p><strong>Founder Tier</strong> discounts for early customers. Lock in a lower rate as we grow.</p>
         <ul class="checklist">
           <li>Flat, upfront pricing</li>
           <li>No contracts — cancel anytime</li>
-          <li> Eco-Friendly Sanitizer that Deodorizes</li>
-          <li>Body‑cam accountability for total transparency</li>
+          <li> Eco-Friendly Sanitizing Spray that Deodorizes</li>
+          <li>Body‑cam accountability for complete transparency</li>
         </ul>
         <a href="#pricing" class="btn btn-gold btn-block">View Founder Pricing</a>
       </div>
+    -->
     </div>
   </main>
 
@@ -122,7 +134,7 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
 
   <section id="pricing" class="section alt">
     <div class="container">
-      <h2>Founder Pricing</h2>
+      <h2>Pricing</h2>
       <p class="muted">Simple, honest pricing.</p>
       <div class="pricing grid-3">
         <div class="card price">
@@ -171,16 +183,17 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
 
   <section id="how" class="section">
     <div class="container grid-3 steps">
+       <h2>How it Works</h2>
       <div class="step">
         <div class="num">1</div>
         <h3>Book</h3>        
         <p>Click <a href="https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal" class="btn btn-small btn-gold">Book</a>
-          and pick a time. Tell us gate/pet instructions.</p>
+          and pick a time. </p>
       </div>
       <div class="step">
         <div class="num">2</div>
         <h3>We Scoop</h3>
-        <p>Technician texts on the way. Full sweep of the yard, bag &amp; bin.</p>
+        <p>Get a text when we’re coming. We’ll sweep the yard, bag it up, and bin it.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
@@ -205,7 +218,7 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
 
       </div>
       <div class="center">
-        <a class="btn btn-ghost" href="https://share.google/BmrAe7sIaijzGn70y" target="_blank" rel="noopener">Click to View Google Business Page</a>
+        <a class="btn btn-ghost" href="https://share.google/BmrAe7sIaijzGn70y" target="_blank" rel="noopener">View Our Google Business Page</a>
       </div>
     </div>
   </section>
@@ -271,5 +284,7 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
   </footer>
 
   <script src="app.js"></script>
+  <script src="toggle.js"></script>
+  
 </body>
 </html>
