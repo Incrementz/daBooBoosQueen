@@ -4,13 +4,19 @@
   "description": "A minimal static website you can host **for free** on GitHub Pages.",
   "main": "app.js",
   "scripts": {
-     "start": "live-server --port=8080 --open=index.html",
-    "dev": "npm run start"
+    "start": "live-server --port=8080 --open=index.html",
+    "dev": "npm run start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+    "live-server": "^1.2.2",
+    "prettier": "3.6.2"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true
 }
