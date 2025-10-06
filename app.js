@@ -27,3 +27,39 @@ function submitContact(e) {
   form.reset();
   return false;
 }
+
+// This avoids timing quirks when the address bar hides/shows and when the dropdown is open.
+function headerHeight() {
+  return (
+    document.querySelector(".site-header .header-inner")?.offsetHeight || 56
+  );
+}
+function offsetScrollTo(el) {
+  const y =
+    el.getBoundingClientRect().top + window.scrollY - (headerHeight() + 12);
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+function closeMobileNav() {
+  // If you implemented a mobile nav with id="site-nav" and .open class
+  const nav = document.getElementById("site-nav");
+  if (nav) nav.classList.remove("open");
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const id = a.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    // closeMobileNav();
+    // small delay lets layout settle on mobile (URL bar/keyboard/etc.)
+    setTimeout(() => offsetScrollTo(target), 50);
+  });
+});
+
+// If navigation changes the hash (e.g., from external links), fix position too
+window.addEventListener("hashchange", () => {
+  const t = document.querySelector(location.hash);
+  if (t) setTimeout(() => offsetScrollTo(t), 50);
+});

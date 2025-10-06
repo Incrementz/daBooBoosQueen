@@ -22,7 +22,7 @@ body{
   line-height:1.65;
 }
 
-.container{max-width:var(--container);margin:0 auto;padding:1.2rem}
+.container{max-width:var(--container);margin:0 auto;padding:.8rem}
 .grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
 .grid-3{display:grid;gap:1.2rem;grid-template-columns:1fr}
 /* Let the header row expand on small screens */
@@ -57,7 +57,7 @@ body{
 
 .card{
   background:var(--card);border:var(--border);border-radius:var(--radius);
-  padding:1.15rem;box-shadow:var(--shadow)
+  padding: 0 1.15rem 1.15rem; ;box-shadow:var(--shadow)
 }
 .hero-card h3{margin:.2rem 0 .5rem;color:var(--camo)}
 .checklist{list-style:none;padding:0;margin:.5rem 0 1rem}
@@ -68,7 +68,7 @@ body{
 .badges{display:flex;gap:.6rem;flex-wrap:wrap;margin:.75rem 0 0;padding:0;list-style:none}
 .badges li{background:#fff;border:var(--border);border-radius:999px;padding:.25rem .6rem}
 
-.section{padding:2.2rem 0}
+.section{padding:0.1rem 0}
 .section.alt{background:#ffffff}
 .center{text-align:center}
 .small{font-size:.9rem}
@@ -196,4 +196,20 @@ input:focus,textarea:focus{outline:2px solid rgba(54,71,50,.25)}
   /* Optional: hide the brand text to save space */
   .brand span{ display:none; }
   .brand img{ height:36px; }
+}
+
+
+
+/*This tells the browser to leave space for the sticky header when jumping to #ids.*/
+:root { --header-h: 56px; }
+
+/* Modern fix: reserve space equal to header height (+ safe area + small buffer) */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 12px);
+}
+
+/* Make targeted elements respect the offset even if JS scrolls them */
+[id] {
+  scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 12px);
 }
