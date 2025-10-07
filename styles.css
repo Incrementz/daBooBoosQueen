@@ -145,6 +145,10 @@ body {
   padding: 0 1.15rem 1.15rem;
   box-shadow: var(--shadow);
 }
+
+.h3-tight { margin-bottom: .25rem; }
+.h3-tight + p { margin-top: 0; } 
+
 .hero-card h3 {
   margin: 0.2rem 0 0.5rem;
   color: var(--camo);
@@ -159,7 +163,7 @@ body {
 }
 .bullets {
   list-style: disc;
-  margin: 0.5rem 0 0 1.25rem;
+  margin: 0rem 0 0 1.25rem;
   padding: 0;
 }
 
