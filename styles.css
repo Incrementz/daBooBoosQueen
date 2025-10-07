@@ -338,6 +338,26 @@ textarea:focus {
   box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
 }
 
+.btn-free{
+  background: var(--gold);
+  border: 2px solid var(--camo); /* solid outline color */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease; /* smooth hover */
+}
+.btn-free:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark); /* outline darkens to match */
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4); /* soft gold shadow */
+  transform: translateY(-2px); /* subtle lift */
+}
+.btn-:active {
+  transform: translateY(0); /* back down, feels like a press */
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+}
+
 .btn-ghost {
   background: #fff;
   border: 2px solid var(--camo); /* solid outline color */
