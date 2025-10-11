@@ -2,6 +2,25 @@
 /*
 49 20 6B 65 65 70 20 61 20 68 6F 75 73 65 20 77 69 74 68 20 6E 6F 20 64 6F 6F 72 73 20 61 6E 64 20 6E 65 76 65 72 20 6C 65 6E 64 20 61 20 6B 65 79 2E 0A 59 65 74 20 68 65 72 65 20 79 6F 75 20 61 72 65 20 69 6E 20 6D 79 20 70 61 72 6C 6F 72 2E 0A 57 68 61 74 20 75 6E 6C 6F 63 6B 65 64 20 79 6F 75 72 20 77 61 79 3F 20 6F 70 65 6E 73 20 65 76 65 72 79 20 6C 6F 63 6B 2C 20 62 75 74 20 73 68 75 74 73 20 6F 6E 6C 79 20 79 6F 75 20 69 6E 73 69 64 65 3F
 */
+
+import { createBookingButton } from './components/bookingButton.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('#cta-slot') // wherever you want to insert it
+
+  const button = createBookingButton({
+    text: 'Book FREE Cleanup', // customize per page
+    href: 'https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal',
+    layout: 'month_view', // could change later (like "week_view")
+  })
+
+  container.appendChild(button)
+})
+
+//CTA Buttons
+document.querySelector('#cta-hero')?.appendChild(createBookingButton({ text: 'Book FREE Cleanup' }))
+
+// Calls to functions
 function qs(sel, root = document) {
   return root.querySelector(sel)
 }
