@@ -146,8 +146,12 @@ body {
   box-shadow: var(--shadow);
 }
 
-.h3-tight { margin-bottom: .25rem; }
-.h3-tight + p { margin-top: 0; } 
+.h3-tight {
+  margin-bottom: 0.25rem;
+}
+.h3-tight + p {
+  margin-top: 0;
+}
 
 .hero-card h3 {
   margin: 0.2rem 0 0.5rem;
@@ -342,7 +346,7 @@ textarea:focus {
   box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
 }
 
-.btn-free{
+.btn-free {
   background: var(--gold);
   border: 2px solid var(--camo); /* solid outline color */
   color: #fff;
