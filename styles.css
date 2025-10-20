@@ -2,6 +2,7 @@
 :root {
   --bg: #fdfbf5; /* warm light background */
   --ink: #10150f; /* near-black text */
+  --ink2: #000;
   --muted: #566055; /* muted text */
   --card: #ffffff; /* card white */
   --camo: #364732; /* dark camo green */
@@ -347,7 +348,7 @@ textarea:focus {
 }
 
 .btn-free {
-  background: var(--ink);
+  background: var(--ink2);
   border: 2px solid var(--camo); /* solid outline color */
   color: #fff;
   padding: 0.75rem 1.5rem;
