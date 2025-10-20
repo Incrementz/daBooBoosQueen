@@ -347,7 +347,7 @@ textarea:focus {
 }
 
 .btn-free {
-  background: var(--gold);
+  background: var(--ink);
   border: 2px solid var(--camo); /* solid outline color */
   color: #fff;
   padding: 0.75rem 1.5rem;
