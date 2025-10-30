@@ -164,7 +164,7 @@ body {
   margin: 0.5rem 0 1rem;
 }
 .checklist li::before {
-  content: '✔️ ';
+  content: '✔ ';
 }
 .bullets {
   list-style: disc;
