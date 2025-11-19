@@ -420,8 +420,23 @@ textarea:focus {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
+.fieldtech-image {
+  width: 80%;           /* Large but not full width on desktop */
+  max-width: 900px;     /* Optional: keeps it from being TOO huge */
+  height: auto;
+  display: block;
+  margin: 0 auto;       /* Centers the image */
+  border-radius: 8px;   /* Optional, looks clean */
+}
+
 /* Mobile behavior */
 @media (max-width: 768px) {
+    .fieldtech-image {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;   /* Optional — looks more full-screen on mobile */
+  }
+
   .header-inner {
     flex-wrap: wrap;
     row-gap: 0.5rem;
