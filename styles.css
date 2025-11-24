@@ -429,6 +429,18 @@ textarea:focus {
   border-radius: 8px;   /* Optional, looks clean */
 }
 
+.beta-label {
+  display: inline-block;
+  background: #808080;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Mobile behavior */
 @media (max-width: 768px) {
     .fieldtech-image {
