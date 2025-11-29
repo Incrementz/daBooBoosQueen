@@ -421,12 +421,12 @@ textarea:focus {
 }
 
 .fieldtech-image {
-  width: 80%;           /* Large but not full width on desktop */
-  max-width: 900px;     /* Optional: keeps it from being TOO huge */
+  width: 80%; /* Large but not full width on desktop */
+  max-width: 900px; /* Optional: keeps it from being TOO huge */
   height: auto;
   display: block;
-  margin: 0 auto;       /* Centers the image */
-  border-radius: 8px;   /* Optional, looks clean */
+  margin: 0 auto; /* Centers the image */
+  border-radius: 8px; /* Optional, looks clean */
 }
 
 .beta-label {
@@ -443,10 +443,10 @@ textarea:focus {
 
 /* Mobile behavior */
 @media (max-width: 768px) {
-    .fieldtech-image {
+  .fieldtech-image {
     width: 100%;
     max-width: 100%;
-    border-radius: 0;   /* Optional — looks more full-screen on mobile */
+    border-radius: 0; /* Optional — looks more full-screen on mobile */
   }
 
   .header-inner {
