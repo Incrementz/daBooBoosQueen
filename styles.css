@@ -132,6 +132,11 @@ body {
   font-size: 1.05rem;
   color: var(--muted);
 }
+
+.small-print{
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
 .accent {
   background: linear-gradient(90deg, var(--camo), var(--gold));
   -webkit-background-clip: text;
@@ -440,6 +445,12 @@ textarea:focus {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+.about-owner {
+  line-height: 1.18;
+}
+
+
 
 /* Mobile behavior */
 @media (max-width: 768px) {
