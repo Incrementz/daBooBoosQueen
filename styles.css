@@ -59,6 +59,10 @@ body {
     height: auto;
     padding-block: 0.25rem;
   }
+    #about p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
   .nav {
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -139,19 +143,18 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
   margin: 0;
   line-height: 1.2;
   font-weight: 400;
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 
 .hero-slogan {
-  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  font-size: clamp(3.9rem, 4.2vw, 4.2rem);
   margin: 0;
   line-height: 1.2;
   font-weight: 600;
-  padding-top: 1rem;
+  padding-top: .5rem;
 }
 
 .hero-tagline {
-  margin: 0.3rem 0 0;
   line-height: 1.2;
   margin: 0 0 0.6rem;
 }
@@ -243,7 +246,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
 .section {
   padding: 0.1rem 0;
    border-top: 1px solid #eee;
-   background-color: #808080;
+   background-color: rgb(241, 241, 241);
 }
 .section.alt {
   background: #ffffff;
@@ -494,16 +497,32 @@ textarea:focus {
 }
 
 .about-owner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
+    max-width: 520px;
+}
+
+#about p{
+      font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.fieldtech-image {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  justify-self: end;  /* pushes image to the right */
 }
 
 /* Mobile behavior */
 @media (max-width: 768px) {
   p[style*='font-size: 2rem'] {
     font-size: 1.3rem !important;
+  }
+
+    #about p {
+    font-size: 1rem;       /* slightly larger for readability */
+    line-height: 1.6;
   }
 
   .about-grid {
