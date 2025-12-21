@@ -45,7 +45,8 @@ body {
 .grid-2 {
   display: grid;
   gap: 1.2rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* desktop */
+  align-items: start;
 }
 .grid-3 {
   display: grid;
@@ -59,7 +60,7 @@ body {
     height: auto;
     padding-block: 0.25rem;
   }
-    #about p {
+  #about p {
     font-size: 0.95rem;
     line-height: 1.55;
   }
@@ -123,13 +124,13 @@ body {
 /* Hero Section */
 
 .hero {
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 2.4rem 0 0.4rem;
   background:
     /* radial-gradient(1600px 400px at 20% -10%, rgba(54,71,50,0.12), transparent),
-radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
-    url('/assets/bruh.png') right 28%/ contain no-repeat;
-    background-size: 50%;
+radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ url('/assets/bruh.png')
+    right 28% / contain no-repeat;
+  background-size: 50%;
 }
 
 .hero h2 {
@@ -139,39 +140,43 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
 }
 
 .hero-county {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 0;
   line-height: 1.2;
   font-weight: 400;
-  padding-top: 4rem;
+  padding-top: 6rem;
 }
 
 .hero-slogan {
-  font-size: clamp(3.9rem, 4.2vw, 4.2rem);
+  font-size: clamp(0.9rem, 4.2vw, 6.2rem);
   margin: 0;
   line-height: 1.2;
   font-weight: 600;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 .hero-tagline {
+  font-size: 1.4rem;
   line-height: 1.2;
   margin: 0 0 0.6rem;
 }
 
 .hero-inner {
-  min-height: 100vh;          /* full screen */
+  min-height: 100vh; /* full screen */
 }
 
-.hero-content {  display: flex;
-  flex-direction: column;min-height: calc(100vh - 80px); }
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
 
 /* Push buttons to the bottom */
 .cta-row {
-  margin-top:auto;
+  margin-top: auto;
   gap: 0.75rem;
-  display: flex;  
- padding-bottom: 19rem;
+  display: flex;
+  padding-bottom: 20rem;
 }
 
 /* .cta-row {
@@ -180,7 +185,6 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
   flex-wrap: wrap;
   
 } */
-
 
 .lead {
   font-size: 1.05rem;
@@ -227,7 +231,6 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
   padding: 0;
 }
 
-
 .badges {
   display: flex;
   gap: 0.6rem;
@@ -245,12 +248,12 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
 
 .section {
   padding: 0.1rem 0;
-   border-top: 1px solid #eee;
-   background-color: rgb(241, 241, 241);
+  border-top: 1px solid #eee;
+  background-color: rgb(241, 241, 241);
 }
 .section.alt {
   background: #ffffff;
-   border-top: 1px solid #eee;
+  border-top: 1px solid #eee;
 }
 .center {
   text-align: center;
@@ -497,11 +500,11 @@ textarea:focus {
 }
 
 .about-owner {
-    max-width: 520px;
+  max-width: 520px;
 }
 
-#about p{
-      font-size: 0.95rem;
+#about p {
+  font-size: 0.95rem;
   line-height: 1.55;
   color: var(--muted);
 }
@@ -511,17 +514,64 @@ textarea:focus {
   max-width: 480px;
   height: auto;
   display: block;
-  justify-self: end;  /* pushes image to the right */
+  justify-self: end; /* pushes image to the right */
 }
 
 /* Mobile behavior */
 @media (max-width: 768px) {
+  .hero {
+    /* Mobile: full-screen background image */
+    background:
+      radial-gradient(900px 300px at 30% -10%, rgba(54, 71, 50, 0.1), transparent),
+      radial-gradient(700px 240px at 80% -10%, rgba(54, 71, 50, 0.06), transparent),
+      url('/assets/bruh.png') center 32% / 120% no-repeat;
+    
+   padding-top: 1.3rem;
+  }
+
+   .hero-slogan {
+    font-size: 2.5rem;   /* force readable size on phones */
+  }
+  
+  .cta-row {
+    padding-bottom: 10rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-row .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero,
+  .hero-content {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+.hero .container {
+  padding: 0.8rem;      /* keep side padding */
+  padding-top: 0;       /* remove top only */
+}
+
+   .hero-county {
+    padding-top: 0 !important;  /* mobile */
+  }
+  
+  .hero-tagline {
+    font-size: 1.05rem;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
   p[style*='font-size: 2rem'] {
     font-size: 1.3rem !important;
   }
 
-    #about p {
-    font-size: 1rem;       /* slightly larger for readability */
+  #about p {
+    font-size: 1rem; /* slightly larger for readability */
     line-height: 1.6;
   }
 
@@ -530,22 +580,7 @@ textarea:focus {
     gap: 1.25rem;
   }
 
-  .hero-inner {
-  min-height: 100vh;
-}
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-  .hero-county {
-    font-size: 1.05rem;
-  }
-  .hero-tagline {
-    font-size: 1.05rem;
-  }
   h1[style*='font-size: 5rem'] {
     font-size: 2.4rem !important;
     line-height: 1.1;
