@@ -33,7 +33,7 @@ body {
     Arial,
     sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background: var(--white);
   line-height: 1.65;
 }
 
@@ -79,7 +79,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgb(255, 255, 255);
+  background: rgb(241, 241, 241);
   border-bottom: var(--border);
   backdrop-filter: saturate(1.1) blur(6px);
 }
@@ -116,24 +116,75 @@ body {
   box-shadow: var(--shadow);
 }
 
+/* Hero Section */
+
 .hero {
+  min-height: 100vh;
   padding: 2.4rem 0 0.4rem;
   background:
-    radial-gradient(1600px 400px at 20% -10%, rgba(54, 71, 50, 0.1), transparent),
-    radial-gradient(1200px 300px at 80% -10%, rgba(212, 175, 55, 0.12), transparent);
+    /* radial-gradient(1600px 400px at 20% -10%, rgba(54,71,50,0.12), transparent),
+radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */
+    url('/assets/bruh.png') right 28%/ contain no-repeat;
+    background-size: 50%;
 }
-.hero h1 {
-  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+
+.hero h2 {
   line-height: 1.15;
   margin: 0 0 0.6rem;
-  color: var(--camo);
+  color: var(--black);
 }
+
+.hero-county {
+  font-size: 1.3rem;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 400;
+  padding-top: 5rem;
+}
+
+.hero-slogan {
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 600;
+  padding-top: 1rem;
+}
+
+.hero-tagline {
+  margin: 0.3rem 0 0;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+}
+
+.hero-inner {
+  min-height: 100vh;          /* full screen */
+}
+
+.hero-content {  display: flex;
+  flex-direction: column;min-height: calc(100vh - 80px); }
+
+/* Push buttons to the bottom */
+.cta-row {
+  margin-top:auto;
+  gap: 0.75rem;
+  display: flex;  
+ padding-bottom: 19rem;
+}
+
+/* .cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  
+} */
+
+
 .lead {
   font-size: 1.05rem;
   color: var(--muted);
 }
 
-.small-print{
+.small-print {
   font-size: 0.85rem;
   line-height: 1.25;
 }
@@ -159,10 +210,6 @@ body {
   margin-top: 0;
 }
 
-.hero-card h3 {
-  margin: 0.2rem 0 0.5rem;
-  color: var(--camo);
-}
 .checklist {
   list-style: none;
   padding: 0;
@@ -177,12 +224,7 @@ body {
   padding: 0;
 }
 
-.cta-row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin: 0.9rem 0;
-}
+
 .badges {
   display: flex;
   gap: 0.6rem;
@@ -200,9 +242,12 @@ body {
 
 .section {
   padding: 0.1rem 0;
+   border-top: 1px solid #eee;
+   background-color: #808080;
 }
 .section.alt {
   background: #ffffff;
+   border-top: 1px solid #eee;
 }
 .center {
   text-align: center;
@@ -424,14 +469,10 @@ textarea:focus {
   transform: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
-
 .fieldtech-image {
-  width: 80%; /* Large but not full width on desktop */
-  max-width: 900px; /* Optional: keeps it from being TOO huge */
+  max-width: 100%;
   height: auto;
-  display: block;
-  margin: 0 auto; /* Centers the image */
-  border-radius: 8px; /* Optional, looks clean */
+  border-radius: 8px; /* optional */
 }
 
 .beta-label {
@@ -445,20 +486,48 @@ textarea:focus {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
-.about-owner {
-  line-height: 1.18;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
-
+.about-owner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
 
 /* Mobile behavior */
 @media (max-width: 768px) {
-   p[style*="font-size: 2rem"] {
+  p[style*='font-size: 2rem'] {
     font-size: 1.3rem !important;
   }
 
-  h1[style*="font-size: 5rem"] {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hero-inner {
+  min-height: 100vh;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+  .hero-county {
+    font-size: 1.05rem;
+  }
+  .hero-tagline {
+    font-size: 1.05rem;
+  }
+  h1[style*='font-size: 5rem'] {
     font-size: 2.4rem !important;
     line-height: 1.1;
   }
@@ -468,13 +537,12 @@ textarea:focus {
   }
 
   .h1 {
-    font-size: 2rem;   /* smaller for phones */
+    font-size: 2rem; /* smaller for phones */
     line-height: 1.15;
   }
   .fieldtech-image {
-    width: 100%;
     max-width: 100%;
-    border-radius: 0; /* Optional — looks more full-screen on mobile */
+    border-radius: 8px; /* Optional — looks more full-screen on mobile */
   }
 
   .header-inner {
@@ -484,7 +552,9 @@ textarea:focus {
   .nav-toggle {
     display: inline-flex;
   }
-
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
   /* Hide nav by default on mobile */
   .nav {
     display: none; /* hidden until toggled */
@@ -515,6 +585,8 @@ textarea:focus {
     height: 36px;
   }
 }
+
+/* END OF MEDIA 768*/
 
 /*This tells the browser to leave space for the sticky header when jumping to #ids.*/
 :root {
