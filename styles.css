@@ -121,6 +121,43 @@ body {
   box-shadow: var(--shadow);
 }
 
+.map-embed {
+  width: 80%;
+  aspect-ratio: 16 / 10;   /* good default */
+  border-radius: 12px;
+  overflow: hidden;
+}
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+#service-area h2 {
+  margin-bottom: 0.6rem;
+}
+
+#service-area p {
+  margin: 0.6rem 0;
+}
+
+.service-cities {
+  columns: 2;              /* nice on mobile too */
+  column-gap: 1.25rem;
+  padding-left: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.service-cities li {
+  list-style: disc;
+  margin: 0.25rem 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+
 /* Hero Section */
 
 .hero {
@@ -534,7 +571,7 @@ textarea:focus {
   }
   
   .cta-row {
-    padding-bottom: 10rem;
+    padding-top: 22rem;
     flex-direction: column;
     align-items: stretch;
   }
@@ -546,8 +583,8 @@ textarea:focus {
 
   .hero,
   .hero-content {
-    min-height: auto !important;
-    height: auto !important;
+    min-height: 60vh!important;
+    height: 99vh !important;
   }
 
 .hero .container {
@@ -558,7 +595,14 @@ textarea:focus {
    .hero-county {
     padding-top: 0 !important;  /* mobile */
   }
-  
+
+    #service-area .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .map-embed {
+    aspect-ratio: 4 / 3; /* taller map on phones */
+  }
   .hero-tagline {
     font-size: 1.05rem;
   }
