@@ -165,7 +165,7 @@ body {
   padding: 2.4rem 0 0.4rem;
   background:
     /* radial-gradient(1600px 400px at 20% -10%, rgba(54,71,50,0.12), transparent),
-radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ url('/assets/bruh.png')
+radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ url('/assets/da-boo-boos-queen-logo-dog.png')
     right 28% / contain no-repeat;
   background-size: 50%;
 }
@@ -561,7 +561,7 @@ textarea:focus {
     background:
       radial-gradient(900px 300px at 30% -10%, rgba(54, 71, 50, 0.1), transparent),
       radial-gradient(700px 240px at 80% -10%, rgba(54, 71, 50, 0.06), transparent),
-      url('/assets/bruh.png') center 32% / 120% no-repeat;
+      url('/assets/da-boo-boos-queen-logo-dog.png') center 32% / 120% no-repeat;
     
    padding-top: 1.3rem;
   }
