@@ -113,14 +113,15 @@
 
           <!-- Dropdown Services -->
           <li class="dropdown" id="dropdown">
-            <button
+            <a
+              href="/services/"
               class="dropdown-toggle"
-              type="button"
               aria-haspopup="true"
               aria-expanded="false"
             >
               Services<span aria-hidden="true">▾</span>
-            </button>
+            </a>
+         
 
             <ul class="dropdown-menu" role="menu" aria-label="Locations">
               <li role="none">
@@ -135,23 +136,25 @@
           </li>
 
           <!-- Dropdown Locations-->
-          <li class="dropdown" id="dropdown">
-            <button
+          <li class="dropdown">
+            <a
+              href="/locations/"
               class="dropdown-toggle"
-              type="button"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Locations<span aria-hidden="true">▾</span>
-            </button>
+              Locations▾
+            </a>
 
-            <ul class="dropdown-menu" role="menu" aria-label="Locations">
-              <li role="none">
-                <a role="menuitem" href="/locations/san-luis-obispo/">San Luis Obispo</a>
-              </li>
-              <!-- Add more cities here -->
+            <ul class="dropdown-menu">
+              <li><a href="/locations/san-luis-obispo/">San Luis Obispo</a></li>
+              <li><a href="/locations/arroyo-grande/">Arroyo Grande</a></li>
             </ul>
           </li>
+
+
+
+
 
           <a href="faq.html">FAQ</a>
 

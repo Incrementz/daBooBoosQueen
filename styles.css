@@ -222,12 +222,12 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   
 } */
 
-.dropdown-toggle:hover{
-    background: #d8d5d5;
+.dropdown-toggle:hover {
+  background: #d8d5d5;
   box-shadow: var(--shadow);
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
-    color: inherit;
+  color: inherit;
 }
 .dropdown-toggle {
   border: none;
@@ -243,7 +243,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   margin: 0;
 }
 
-.dropdown:hover .dropdown-menu{
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
@@ -259,7 +259,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   border-radius: 14px;
   background: white;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  display: none;  /* key: animatable closed state */
+  display: none; /* key: animatable closed state */
 }
 
 .dropdown-menu a {
