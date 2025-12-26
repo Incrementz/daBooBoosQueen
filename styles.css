@@ -745,31 +745,36 @@ textarea:focus {
   }
 
     /* Stack items vertically */
-  .nav-list {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-  }
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 30px;
+}
 
     /* Make links full-width tappable */
-  .nav-list a {
-    width: 100%;
-    padding: 12px 12px;
-  }
-
-
-  
-  /* Show when header is "open" */
-  .site-header.open .nav {
-    display: flex;
-  }
-
+.nav-list a {
+  white-space: nowrap;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
   /* Tighter link style for mobile */
   .nav a {
     white-space: nowrap;
     padding: 0.4rem 0.6rem;
     border-radius: 10px;
     font-size: 0.95rem;
+  }
+
+   .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-radius: 12px;
+    margin-top: 6px;
+  }
+  /* Show when header is "open" */
+  .site-header.open .nav {
+    display: flex;
   }
 
   /* Optional: hide the brand text to save space */
