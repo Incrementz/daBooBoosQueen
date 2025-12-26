@@ -54,31 +54,6 @@ body {
   grid-template-columns: 1fr;
 }
 /* Let the header row expand on small screens */
-@media (max-width: 480px) {
-  .site-header .header-inner {
-    min-height: var(--header-h);
-    height: auto;
-    padding-block: 0.25rem;
-  }
-  #about p {
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-  .nav {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .nav a {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.95rem;
-  }
-  .brand img {
-    height: 36px;
-  } /* cap logo so it doesn't inflate if header grows */
-  .brand span {
-    display: none;
-  } /* optional space saver */
-}
 
 .site-header {
   position: sticky;
@@ -116,11 +91,14 @@ body {
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
 }
- .nav-list {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-  }
+.nav-list {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 .nav-list a {
   color: inherit;
@@ -758,15 +736,28 @@ textarea:focus {
   .about-grid {
     grid-template-columns: 1fr;
   }
-  /* Hide nav by default on mobile */
+ 
+  /* Collapse nav by default */
   .nav {
-    display: none; /* hidden until toggled */
+    display: none;
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin-top: 10px;
   }
+
+    /* Stack items vertically */
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+    /* Make links full-width tappable */
+  .nav-list a {
+    width: 100%;
+    padding: 12px 12px;
+  }
+
+
   
   /* Show when header is "open" */
   .site-header.open .nav {
@@ -788,6 +779,32 @@ textarea:focus {
   .brand img {
     height: 36px;
   }
+}
+
+@media (max-width: 480px) {
+  .site-header .header-inner {
+    min-height: var(--header-h);
+    height: auto;
+    padding-block: 0.25rem;
+  }
+  #about p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .nav a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .brand img {
+    height: 36px;
+  } /* cap logo so it doesn't inflate if header grows */
+  .brand span {
+    display: none;
+  } /* optional space saver */
 }
 
 /* END OF MEDIA 768*/
