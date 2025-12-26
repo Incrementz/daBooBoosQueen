@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <link rel="icon" href="assets/da-boo-boos-queen-logo-dog.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://app.cal.com" crossorigin />
+    <link rel="dns-prefetch" href="//app.cal.com" />
+    <link rel="stylesheet" href="https://app.cal.com/embed/embed.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Service Areas | Pet Waste Removal | Da Boo Boos Queen</title>
+  <meta
+    name="description"
+    content="View all cities we service for pet waste removal. Click your city to see local details, pricing, and availability."
+  />
+
+  <!-- Shared site styles -->
+   <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+     <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home">
+          <img
+            src="/assets/da-boo-boos-queen-logo-dog.png"
+            alt="Da Boo Boo Queen logo"
+            width=""
+            height="40"
+          />
+          <span>Da Boo Boos Queen</span>
+        </a>
+
+        <!-- Hamburger -->
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Menu"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 6h18M3 12h18M3 18h18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <nav id="primary-nav" class="nav" role="navigation">
+          <!-- <a href="#services">Services</a> -->
+          <a href="#pricing">Plans and Pricing</a>
+          <a href="#how">How it works</a>
+          <a href="#reviews">Reviews</a>
+
+          <!-- Services Dropdown  -->
+          <li class="dropdown" id="dropdown">
+            <a
+              href="/services/"
+              class="dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Services<span aria-hidden="true">▾</span>
+            </a>
+
+            <ul class="dropdown-menu" role="menu" aria-label="Locations">
+              <li role="none">
+                <a role="menuitem" href="/services/pet-waste-removal/">Pet Waste Removal</a>
+                <a role="menuitem" href="/services/yard-deodorizing/">Yard Deodorizing</a>
+                <a role="menuitem" href="/services/commercial-pet-waste-removal/"
+                  >Commercial Pet Waste Removal</a
+                >
+              </li>
+              <!-- Add more cities here -->
+            </ul>
+          </li>
+
+          <!-- Locations Dropdown -->
+          <li class="dropdown">
+            <a
+              href="/locations/"
+              class="dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Locations▾
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a href="/locations/san-luis-obispo/">San Luis Obispo</a></li>
+              <li><a href="/locations/arroyo-grande/">Arroyo Grande</a></li>
+            </ul>
+          </li>
+
+
+          <a href="faq.html">FAQ</a>
+
+          <a
+            id="bookCta"
+            class="btn btn-small btn-gold"
+            data-cal-link="da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
+            data-cal-namespace="free-first-pet-waste-removal"
+            data-cal-config='{"layout":"month_view"}'
+            href="https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
+          >
+            Book
+          </a>
+        </nav>
+      </div>
+    </header>
+
+
+  <main class="container">
+    <header>
+      <h1>Pet Waste Removal & Deodorizing in San Luis Obispo County</h1>
+      <h2>Locations</h2>
+      <p>
+        We provide professional pet waste removal & deodorizing for homes and small properties
+        throughout the Central Coast. Select your city below to view local
+        service details.
+      </p>
+    </header>
+
+    <!-- CITY LINKS -->
+    <section aria-label="Cities we service">
+      <div class="city-chips">
+        <a class="city-chip" href="/locations/san-luis-obispo/">San Luis Obispo</a>
+        <!-- Add more cities as needed -->
+        <!-- <a class="city-chip" href="/locations/arroyo-grande/">Arroyo Grande</a> -->
+        <!-- <a class="city-chip" href="/locations/grover-beach/">Grover Beach</a> -->
+      </div>
+    </section>
+
+    <!-- OPTIONAL SEO CONTENT -->
+    <section>
+      <h2>Our pet waste removal service</h2>
+      <p>
+        We offer recurring weekly poop scooping and one-time cleanups designed
+        to keep your yard clean, sanitary, and ready to enjoy.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <h2>Not sure if we service your area?</h2>
+      <p>
+        <a href="/contact/">Request a quote</a> and we’ll confirm availability.
+      </p>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -116,6 +116,25 @@ body {
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
 }
+.nav-list {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: inherit;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+}
+
+.nav-list > li {
+  position: relative;
+}
 .nav a:hover {
   background: #d8d5d5;
   box-shadow: var(--shadow);
@@ -222,6 +241,42 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   
 } */
 
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px 18px;
+}
+
+.city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 999px;
+  background: #fff;
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.city-chip:hover {
+  background: #f6f6f6;
+  border-color: #d6d6d6;
+}
+
+.nav-links a.active {
+  font-weight: 700;
+}
+
+
 .dropdown-toggle:hover {
   background: #d8d5d5;
   box-shadow: var(--shadow);
@@ -238,7 +293,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
 
 .dropdown {
   position: relative;
-  font-family: var(--times-new-roman, serif);
+  font-family: var(--font-family, sans-serif);
   list-style: none;
   margin: 0;
 }

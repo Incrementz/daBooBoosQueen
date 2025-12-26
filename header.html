@@ -1,17 +1,22 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/#home">
       <img
-        src="assets/da-boo-boos-queen-logo-dog.png"
-        alt="Da Boo Boo Queen logo"
-        width=""
+        src="/assets/da-boo-boos-queen-logo-dog.png"
+        alt="Da Boo Boos Queen logo"
         height="40"
       />
       <span>Da Boo Boos Queen</span>
     </a>
 
     <!-- Hamburger -->
-    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Menu"
+      type="button"
+    >
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
         <path
           d="M3 6h18M3 12h18M3 18h18"
@@ -23,28 +28,61 @@
     </button>
 
     <nav id="primary-nav" class="nav" role="navigation">
-      <!-- <a href="#services">Services</a> -->
-      <a href="#pricing">Plans and Pricing</a>
-      <a href="#how">How it works</a>
-      <a href="#reviews">Reviews</a>
-      <a href="faq.html">FAQ</a>
+      <ul class="nav-list">
+        <li><a href="/#pricing">Plans and Pricing</a></li>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#reviews">Reviews</a></li>
 
-      <a
-        id="bookCta"
-        class="btn btn-small btn-gold"
-        data-cal-link="da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
-        data-cal-namespace="free-first-pet-waste-removal"
-        data-cal-config='{"layout":"month_view"}'
-        href="https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
-      >
-        Book
-      </a>
+        <!-- Services Dropdown -->
+        <li class="dropdown">
+          <a
+            href="/services/"
+            class="dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Services <span aria-hidden="true">▾</span>
+          </a>
+
+          <ul class="dropdown-menu" role="menu" aria-label="Services">
+            <li role="none"><a role="menuitem" href="/services/pet-waste-removal/">Pet Waste Removal</a></li>
+            <li role="none"><a role="menuitem" href="/services/yard-deodorizing/">Yard Deodorizing</a></li>
+            <li role="none"><a role="menuitem" href="/services/commercial-pet-waste-removal/">Commercial Pet Waste Removal</a></li>
+          </ul>
+        </li>
+
+        <!-- Locations Dropdown -->
+        <li class="dropdown">
+          <a
+            href="/locations/"
+            class="dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Locations <span aria-hidden="true">▾</span>
+          </a>
+
+          <ul class="dropdown-menu" role="menu" aria-label="Locations">
+            <li role="none"><a role="menuitem" href="/locations/san-luis-obispo/">San Luis Obispo</a></li>
+            <li role="none"><a role="menuitem" href="/locations/arroyo-grande/">Arroyo Grande</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/faq.html">FAQ</a></li>
+
+        <li>
+          <a
+            id="bookCta"
+            class="btn btn-small btn-gold"
+            data-cal-link="da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
+            data-cal-namespace="free-first-pet-waste-removal"
+            data-cal-config='{"layout":"month_view"}'
+            href="https://cal.com/da-boo-boos-queen-sntbbp/free-first-pet-waste-removal"
+          >
+            Book
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
 </header>
-
-<script src="app.js" defer></script>
-<script src="js/toggle.js" defer></script>
-<script src="js/embedBooking.js" defer></script>
-<script src="js/floatButton.js" defer></script>
-<script src="js/allBookTriggers.js" defer></script>

@@ -11,7 +11,7 @@ document.querySelectorAll('.dropdown').forEach((dropdown) => {
     clearTimeout(closeTimer)
     closeTimer = setTimeout(() => {
       dropdown.classList.remove('open')
-    }, 800)
+    }, 250)
   }
 
   dropdown.addEventListener('mouseenter', open)
