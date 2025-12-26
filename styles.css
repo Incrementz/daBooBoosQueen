@@ -116,14 +116,11 @@ body {
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
 }
-.nav-list {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+ .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
 
 .nav-list a {
   color: inherit;
@@ -770,6 +767,7 @@ textarea:focus {
     gap: 0.5rem;
     padding-bottom: 0.5rem;
   }
+  
   /* Show when header is "open" */
   .site-header.open .nav {
     display: flex;
