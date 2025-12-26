@@ -123,7 +123,7 @@ body {
 
 .map-embed {
   width: 80%;
-  aspect-ratio: 16 / 10;   /* good default */
+  aspect-ratio: 16 / 10; /* good default */
   border-radius: 12px;
   overflow: hidden;
 }
@@ -143,7 +143,7 @@ body {
 }
 
 .service-cities {
-  columns: 2;              /* nice on mobile too */
+  columns: 2; /* nice on mobile too */
   column-gap: 1.25rem;
   padding-left: 1rem;
   margin: 0.5rem 0 1rem;
@@ -156,7 +156,6 @@ body {
   background: none;
   border-radius: 0;
 }
-
 
 /* Hero Section */
 
@@ -222,6 +221,61 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   flex-wrap: wrap;
   
 } */
+
+.dropdown-toggle:hover{
+    background: #d8d5d5;
+  box-shadow: var(--shadow);
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+    color: inherit;
+}
+.dropdown-toggle {
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.dropdown {
+  position: relative;
+  font-family: var(--times-new-roman, serif);
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown:hover .dropdown-menu{
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  display: none;  /* key: animatable closed state */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f3f3f3;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
 
 .lead {
   font-size: 1.05rem;
@@ -562,14 +616,14 @@ textarea:focus {
       radial-gradient(900px 300px at 30% -10%, rgba(54, 71, 50, 0.1), transparent),
       radial-gradient(700px 240px at 80% -10%, rgba(54, 71, 50, 0.06), transparent),
       url('assets/da-boo-boos-queen-logo-dog.png') center 32% / 120% no-repeat;
-    
-   padding-top: 1.3rem;
+
+    padding-top: 1.3rem;
   }
 
-   .hero-slogan {
-    font-size: 2.5rem;   /* force readable size on phones */
+  .hero-slogan {
+    font-size: 2.5rem; /* force readable size on phones */
   }
-  
+
   .cta-row {
     padding-top: 22rem;
     flex-direction: column;
@@ -583,20 +637,20 @@ textarea:focus {
 
   .hero,
   .hero-content {
-    min-height: 60vh!important;
+    min-height: 60vh !important;
     height: 99vh !important;
   }
 
-.hero .container {
-  padding: 0.8rem;      /* keep side padding */
-  padding-top: 0;       /* remove top only */
-}
-
-   .hero-county {
-    padding-top: 0 !important;  /* mobile */
+  .hero .container {
+    padding: 0.8rem; /* keep side padding */
+    padding-top: 0; /* remove top only */
   }
 
-    #service-area .grid-2 {
+  .hero-county {
+    padding-top: 0 !important; /* mobile */
+  }
+
+  #service-area .grid-2 {
     grid-template-columns: 1fr;
   }
 
@@ -623,7 +677,6 @@ textarea:focus {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-
 
   h1[style*='font-size: 5rem'] {
     font-size: 2.4rem !important;
