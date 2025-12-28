@@ -710,7 +710,7 @@ textarea:focus {
   }
 
   .cta-row {
-    padding-top: 22rem;
+    padding-top: 24rem;
     flex-direction: column;
     align-items: stretch;
   }
@@ -720,14 +720,6 @@ textarea:focus {
     text-align: center;
   }
 
-  .cta-row-2 {
-   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;   /* space under the paragraph */
-  margin-bottom: 16px;/* space before grid-2 */
-  align-items: center;
-  }
 
   .hero,
   .hero-content {
