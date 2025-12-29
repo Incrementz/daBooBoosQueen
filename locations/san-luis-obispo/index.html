@@ -20,13 +20,68 @@
       name="description"
       content="Da Boo Boos Queen - Pet Waste Removal in San Luis Obispo, California offers expert Dog Poop Scooping Service, Yard Deodorizing, and Commercial Pet Waste Removal."
     />
+    <!-- JSON-LD TEMPLATE (copy/paste into each CITY page) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://YOURDOMAIN.com/#business",
+      "name": "Da Boo Boos Queen",
+      "url": "https://incrementz.github.io/daBooBoosQueen/",
+      "logo": "https://YOURDOMAIN.com/assets/da-boo-boos-queen-logo-dog.png",
+      "image": "https://YOURDOMAIN.com/assets/da-boo-boos-queen-logo-dog.png",
+      "telephone": "+1-805-316-1413",
+      "priceRange": "$",
+      "description": "Professional pet waste removal, poop scooping, yard deodorizing, and commercial pet waste removal on California’s Central Coast.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "areaServed":  {
+  "@type": "City",
+  "name": "San Luis Obispo",
+  "addressRegion": "CA",
+  "addressCountry": "US"
+}
+,
+      "sameAs": [
+        "https://share.google/BmrAe7sIaijzGn70y"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://YOURDOMAIN.com/locations/CITY-SLUG/#service",
+      "name": "Pet Waste Removal in CITY-NAME, CA",
+      "serviceType": [
+        "Pet waste removal",
+        "Dog poop removal",
+        "Pooper scooper service",
+        "Yard deodorizing"
+      ],
+      "provider": {
+        "@id": "https://YOURDOMAIN.com/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "CITY-NAME",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "url": "https://YOURDOMAIN.com/locations/CITY-SLUG/"
+    }
+  ]
+}
+</script>
+
   </head>
 
   <body class="no-hero-bg">
-    <header class="site-header">
-      <div id="site-header"></div>
-    </header>
-    <!-- <div id="site-header"></div> -->
+    
+    <div id="site-header"></div>
+    
     <main class="container">
       <!-- HERO -->
       <section class="hero">
@@ -321,7 +376,7 @@
         </div>
       </div>
     </main>
-    <script src="/js/header.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
     <script src="/js/toggle.js" defer></script>
     <script src="/js/embedBooking.js" defer></script>
     <script src="/js/floatButton.js" defer></script>

@@ -63,14 +63,13 @@ body {
   background: rgb(241, 241, 241);
   border-bottom: var(--border);
   backdrop-filter: saturate(1.1) blur(6px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  
 }
 
 .brand {
@@ -91,7 +90,6 @@ body {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  
 }
 .nav a {
   color: inherit;
@@ -724,7 +722,6 @@ textarea:focus {
     text-align: center;
   }
 
-
   .hero,
   .hero-content {
     height: auto !important;
@@ -840,9 +837,7 @@ textarea:focus {
   /* Show when header is "open" */
   .site-header.open .nav {
     display: flex;
-        
   }
-  
 
   /* Optional: hide the brand text to save space */
   .brand span {
@@ -872,7 +867,6 @@ textarea:focus {
     min-height: var(--header-h);
     height: auto;
     padding-block: 0.25rem;
-
   }
   #about p {
     font-size: 0.95rem;
