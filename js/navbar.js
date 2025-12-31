@@ -4,7 +4,10 @@ async function inject(selector, url) {
   if (!host) return null
 
   const res = await fetch(url, { cache: 'no-cache' })
-  if (!res.ok) return null
+  if (!res.ok) {
+    console.warn(`Header inject failed: ${url} (${res.status})`)
+    return null
+  }
 
   host.innerHTML = await res.text()
   return host
@@ -14,10 +17,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const host = document.querySelector('#site-header')
   if (!host) return
 
+  await inject('#site-header', '/daBooBoosQueen/header.html')
   // 🔑 Make the mount element be the sticky header container
   host.classList.add('site-header')
-
-  await inject('#site-header', '/daBooBoosQueen/header.html')
 
   // Use the host as "header" (reliable even if header.html has no wrapper)
   const header = host

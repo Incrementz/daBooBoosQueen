@@ -10,7 +10,7 @@ async function inject(selector, url) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await inject('#site-header', '/daBooBoosQueen/header.html')
+  await inject('#site-header', '/header.html')
 
   const header = document.querySelector('.site-header')
   const toggle = document.querySelector('.nav-toggle')
