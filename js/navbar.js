@@ -5,7 +5,7 @@ async function inject(selector, url) {
 
   const res = await fetch(url, { cache: 'no-cache' })
   if (!res.ok) {
-    console.warn(`Header inject failed: ${url} (${res.status})`)
+    console.warn(`Header inject ur mom failed: ${url} (${res.status})`)
     return null
   }
 
@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const host = document.querySelector('#site-header')
   if (!host) return
 
-  await inject('#site-header', '/daBooBoosQueen/header.html')
+  const BASE = location.hostname === 'incrementz.github.io' ? '/daBooBoosQueen' : '' // local dev
+
+  await inject('#site-header', `${BASE}/header.html`)
   // 🔑 Make the mount element be the sticky header container
   host.classList.add('site-header')
 
