@@ -382,6 +382,11 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   background: red;
   border-top: 1px solid #eee;
 }
+
+.section-bleed {
+  width: 100%;
+  background: rgb(241, 241, 241); /* or image */
+}
 .center {
   text-align: center;
 }
