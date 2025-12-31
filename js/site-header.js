@@ -73,16 +73,30 @@ function setupHeaderInteractions() {
 }
 
 async function injectHeader() {
-  const host = document.querySelector('#site-header')
-  if (!host) return
+  console.log('[header] injectHeader running')
 
-  const res = await fetch(withBase('/header.html'), { cache: 'no-cache' })
+  const host = document.querySelector('#site-header')
+  console.log('[header] host:', host)
+
+  if (!host) {
+    console.warn('[header] #site-header not found on page')
+    return
+  }
+
+  const url = withBase('/partials/header.html')
+  console.log('[header] fetching:', url)
+
+  const res = await fetch(url, { cache: 'no-cache' })
+  console.log('[header] fetch status:', res.status, res.url)
+
   if (!res.ok) {
-    console.warn('Header inject failed:', res.status, res.url)
+    console.warn('[header] Header inject failed:', res.status, res.url)
     return
   }
 
   host.innerHTML = await res.text()
+  console.log('[header] injected header HTML length:', host.innerHTML.length)
+
   fixHeaderPaths()
   setupHeaderInteractions()
 }

@@ -75,29 +75,24 @@
       }
     </script>
 <script>
-  console.log('[header] loader running on:', location.href)
+  console.log('[header] loader running:', location.href)
 
   const isGh = location.hostname === 'incrementz.github.io'
   const repo = location.pathname.split('/').filter(Boolean)[0] || ''
   const base = isGh ? '/' + repo : ''
 
-  console.log('[header] base =', base)
-
   const s = document.createElement('script')
   s.src = base + '/js/site-header.js'
   s.async = false
   s.onload = () => console.log('[header] site-header.js loaded:', s.src)
-  s.onerror = () => console.error('[header] FAILED to load site-header.js:', s.src)
+  s.onerror = () => console.error('[header] FAILED loading:', s.src)
   document.head.appendChild(s)
 </script>
-
-
 
   </head>
 
   <body>
-<div id="site-header"></div>
-
+    <div id="site-header"></div>
 
     <main id="home" class="hero">
       <div class="container grid-2 hero-inner">
@@ -451,7 +446,5 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
     <script src="js/floatButton.js" defer></script>
     <script src="js/allBookTriggers.js" defer></script>
     <script src="js/dropdown.js" defer></script>
-  
-
   </body>
 </html>
