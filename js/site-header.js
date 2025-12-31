@@ -1,5 +1,3 @@
-// /js/site-header.js
-
 function getBasePath() {
   // Local dev (live-server / localhost): serve from "/"
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
@@ -83,7 +81,7 @@ async function injectHeader() {
     return
   }
 
-  const url = withBase('/partials/header.html')
+  const url = withBase('/header.html')
   console.log('[header] fetching:', url)
 
   const res = await fetch(url, { cache: 'no-cache' })
