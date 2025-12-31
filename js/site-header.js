@@ -87,4 +87,11 @@ async function injectHeader() {
   setupHeaderInteractions()
 }
 
+// ✅ THIS PART:
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', injectHeader)
+} else {
+  injectHeader()
+}
+
 document.addEventListener('DOMContentLoaded', injectHeader)
