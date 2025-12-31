@@ -53,6 +53,11 @@ body {
   gap: 1.2rem;
   grid-template-columns: 1fr;
 }
+.grid-4 {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
 /* Let the header row expand on small screens */
 
 .site-header {
@@ -379,7 +384,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
   background-color: rgb(241, 241, 241);
 }
 .section.alt {
-  background: red;
+  background-color: rgb(254, 254, 254);
   border-top: 1px solid #eee;
 }
 
@@ -865,6 +870,7 @@ textarea:focus {
     border-left: none;
     padding-left: 0;
   }
+
 }
 
 @media (max-width: 480px) {
