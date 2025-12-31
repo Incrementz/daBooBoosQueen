@@ -109,3 +109,6 @@ if (document.readyState === 'loading') {
 }
 
 document.addEventListener('DOMContentLoaded', injectHeader)
+
+console.log('[header] injectHeader running')
+console.log('[header] found host?', !!document.querySelector('#site-header'))
