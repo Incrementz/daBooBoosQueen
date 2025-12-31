@@ -2,6 +2,17 @@
 
 <html lang="en">
   <head>
+    <script>
+  ;(function () {
+    const isGh = location.hostname === 'incrementz.github.io'
+    const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+    const base = isGh ? '/' + repo + '/' : '/'
+    const b = document.createElement('base')
+    b.href = base
+    document.head.prepend(b)
+  })()
+</script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Da Boo Boos Queen | Pet Waste Removal in San Luis Obispo County</title>

@@ -2,7 +2,7 @@ async function injectHeader() {
   const host = document.querySelector('#site-header')
   if (!host) return
 
-  const res = await fetch('/header.html', { cache: 'no-cache' })
+  const res = await fetch('header.html', { cache: 'no-cache' })
   if (!res.ok) {
     console.warn('Header inject failed:', res.status, res.url)
     return
