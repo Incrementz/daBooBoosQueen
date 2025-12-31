@@ -75,15 +75,22 @@
       }
     </script>
 <script>
-  (function () {
-    const isGh = location.hostname === 'incrementz.github.io'
-    const base = isGh ? '/' + location.pathname.split('/').filter(Boolean)[0] : ''
-    const s = document.createElement('script')
-    s.src = base + '/js/site-header.js'
-    s.async = false
-    document.head.appendChild(s)
-  })()
+  console.log('[header] loader running on:', location.href)
+
+  const isGh = location.hostname === 'incrementz.github.io'
+  const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+  const base = isGh ? '/' + repo : ''
+
+  console.log('[header] base =', base)
+
+  const s = document.createElement('script')
+  s.src = base + '/js/site-header.js'
+  s.async = false
+  s.onload = () => console.log('[header] site-header.js loaded:', s.src)
+  s.onerror = () => console.error('[header] FAILED to load site-header.js:', s.src)
+  document.head.appendChild(s)
 </script>
+
 
 
   </head>
