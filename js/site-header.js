@@ -84,7 +84,7 @@ async function injectHeader() {
     return
   }
 
-  const url = withBase('/partials/header.html')
+  const url = withBase('/header.html')
   console.log('[header] fetching:', url)
 
   const res = await fetch(url, { cache: 'no-cache' })
