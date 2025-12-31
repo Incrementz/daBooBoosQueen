@@ -6,6 +6,7 @@ async function inject(selector, url) {
   const res = await fetch(url, { cache: 'no-cache' })
   if (!res.ok) {
     console.warn(`Header inject ur mom failed: ${url} (${res.status})`)
+    console.warn(`UR MOM`)
     return null
   }
 
