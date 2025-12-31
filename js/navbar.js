@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 🔑 Make the mount element be the sticky header container
   host.classList.add('site-header')
 
-  await inject('#site-header', '/header.html')
+  await inject('#site-header', '/daBooBoosQueen/header.html')
 
   // Use the host as "header" (reliable even if header.html has no wrapper)
   const header = host
