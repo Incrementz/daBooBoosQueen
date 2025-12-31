@@ -1,4 +1,5 @@
 // /js/site-header.js
+console.log('[header] site-header.js executing')
 
 function getBasePath() {
   // Local dev (live-server / localhost): serve from "/"
@@ -101,14 +102,12 @@ async function injectHeader() {
   setupHeaderInteractions()
 }
 
-// ✅ THIS PART:
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', injectHeader)
-} else {
-  injectHeader()
-}
-
-document.addEventListener('DOMContentLoaded', injectHeader)
-
 console.log('[header] injectHeader running')
 console.log('[header] found host?', !!document.querySelector('#site-header'))
+
+// Run immediately (works even when this script is injected after DOMContentLoaded)
+try {
+  injectHeader()
+} catch (e) {
+  console.error('[header] injectHeader crashed:', e)
+}
