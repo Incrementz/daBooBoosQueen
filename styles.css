@@ -61,7 +61,6 @@ body {
 /* Let the header row expand on small screens */
 
 .site-header {
-  outline: 3px solid red;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -870,7 +869,6 @@ textarea:focus {
     border-left: none;
     padding-left: 0;
   }
-
 }
 
 @media (max-width: 480px) {
