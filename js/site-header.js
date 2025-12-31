@@ -1,16 +1,29 @@
-// js/site-header.js
+// /js/site-header.js
 
-const BASE_PATH = (() => {
-  // GitHub Pages project site detection
+function getBasePath() {
+  // Local dev (live-server / localhost): serve from "/"
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
+
+  // GitHub Pages project site: "/<repo>"
+  // Example: https://incrementz.github.io/daBooBoosQueen/...
   if (location.hostname === 'incrementz.github.io') {
-    return '/daBooBoosQueen'
+    const first = location.pathname.split('/').filter(Boolean)[0]
+    return first ? `/${first}` : ''
   }
-  // Localhost / custom domain
-  return ''
-})()
 
-function fixHeaderPaths(root = BASE_PATH) {
-  if (!root) return
+  // Custom domain: usually root
+  return ''
+}
+
+const BASE_PATH = getBasePath()
+
+function withBase(path) {
+  if (!BASE_PATH) return path
+  return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+function fixHeaderPaths() {
+  if (!BASE_PATH) return
 
   document
     .querySelectorAll(
@@ -19,15 +32,9 @@ function fixHeaderPaths(root = BASE_PATH) {
     .forEach((el) => {
       const attr = el.hasAttribute('href') ? 'href' : 'src'
       const val = el.getAttribute(attr)
-
-      // Safety: only rewrite true root-relative paths like "/something"
-      // (skip "//cdn...", "mailto:", "tel:", "http", "#hash")
       if (!val || !val.startsWith('/') || val.startsWith('//')) return
-
-      // Avoid double-prefixing if already fixed
-      if (val.startsWith(root + '/')) return
-
-      el.setAttribute(attr, root + val)
+      if (val.startsWith(BASE_PATH + '/')) return
+      el.setAttribute(attr, BASE_PATH + val)
     })
 }
 
@@ -38,13 +45,11 @@ function setupHeaderInteractions() {
 
   if (!header || !toggle || !nav) return
 
-  // Hamburger
   toggle.addEventListener('click', () => {
     const isOpen = header.classList.toggle('open')
     toggle.setAttribute('aria-expanded', String(isOpen))
   })
 
-  // Dropdown toggles (only intercept click on mobile)
   document.querySelectorAll('.dropdown-toggle').forEach((a) => {
     const li = a.closest('.dropdown')
     if (!li) return
@@ -58,12 +63,10 @@ function setupHeaderInteractions() {
     })
   })
 
-  // Close on normal link click
   nav.addEventListener('click', (e) => {
     const link = e.target.closest('a')
     if (!link) return
     if (link.classList.contains('dropdown-toggle')) return
-
     header.classList.remove('open')
     toggle.setAttribute('aria-expanded', 'false')
   })
@@ -73,7 +76,7 @@ async function injectHeader() {
   const host = document.querySelector('#site-header')
   if (!host) return
 
-  const res = await fetch(`${BASE_PATH}/header.html`, { cache: 'no-cache' })
+  const res = await fetch(withBase('/partials/header.html'), { cache: 'no-cache' })
   if (!res.ok) {
     console.warn('Header inject failed:', res.status, res.url)
     return
