@@ -20,21 +20,21 @@ function withBase(path) {
   return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`
 }
 
-function fixHeaderPaths() {
-  if (!BASE_PATH) return
+// function fixHeaderPaths() {
+//   if (!BASE_PATH) return
 
-  document
-    .querySelectorAll(
-      'header a[href^="/"], header img[src^="/"], header script[src^="/"], header link[href^="/"]'
-    )
-    .forEach((el) => {
-      const attr = el.hasAttribute('href') ? 'href' : 'src'
-      const val = el.getAttribute(attr)
-      if (!val || !val.startsWith('/') || val.startsWith('//')) return
-      if (val.startsWith(BASE_PATH + '/')) return
-      el.setAttribute(attr, BASE_PATH + val)
-    })
-}
+//   document
+//     .querySelectorAll(
+//       'header a[href^="/"], header img[src^="/"], header script[src^="/"], header link[href^="/"]'
+//     )
+//     .forEach((el) => {
+//       const attr = el.hasAttribute('href') ? 'href' : 'src'
+//       const val = el.getAttribute(attr)
+//       if (!val || !val.startsWith('/') || val.startsWith('//')) return
+//       if (val.startsWith(BASE_PATH + '/')) return
+//       el.setAttribute(attr, BASE_PATH + val)
+//     })
+// }
 
 function setupHeaderInteractions() {
   const header = document.querySelector('.site-header')
