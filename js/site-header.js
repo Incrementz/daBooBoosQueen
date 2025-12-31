@@ -1,40 +1,16 @@
-function getBasePath() {
-  // Local dev (live-server / localhost): serve from "/"
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
+async function injectHeader() {
+  const host = document.querySelector('#site-header')
+  if (!host) return
 
-  // GitHub Pages project site: "/<repo>"
-  // Example: https://incrementz.github.io/daBooBoosQueen/...
-  if (location.hostname === 'incrementz.github.io') {
-    const first = location.pathname.split('/').filter(Boolean)[0]
-    return first ? `/${first}` : ''
+  const res = await fetch('/header.html', { cache: 'no-cache' })
+  if (!res.ok) {
+    console.warn('Header inject failed:', res.status, res.url)
+    return
   }
 
-  // Custom domain: usually root
-  return ''
+  host.innerHTML = await res.text()
+  setupHeaderInteractions()
 }
-
-const BASE_PATH = getBasePath()
-
-function withBase(path) {
-  if (!BASE_PATH) return path
-  return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`
-}
-
-// function fixHeaderPaths() {
-//   if (!BASE_PATH) return
-
-//   document
-//     .querySelectorAll(
-//       'header a[href^="/"], header img[src^="/"], header script[src^="/"], header link[href^="/"]'
-//     )
-//     .forEach((el) => {
-//       const attr = el.hasAttribute('href') ? 'href' : 'src'
-//       const val = el.getAttribute(attr)
-//       if (!val || !val.startsWith('/') || val.startsWith('//')) return
-//       if (val.startsWith(BASE_PATH + '/')) return
-//       el.setAttribute(attr, BASE_PATH + val)
-//     })
-// }
 
 function setupHeaderInteractions() {
   const header = document.querySelector('.site-header')
@@ -70,36 +46,7 @@ function setupHeaderInteractions() {
   })
 }
 
-async function injectHeader() {
-  console.log('[header] injectHeader running')
-
-  const host = document.querySelector('#site-header')
-  console.log('[header] host:', host)
-
-  if (!host) {
-    console.warn('[header] #site-header not found on page')
-    return
-  }
-
-  const url = withBase('/header.html')
-  console.log('[header] fetching:', url)
-
-  const res = await fetch(url, { cache: 'no-cache' })
-  console.log('[header] fetch status:', res.status, res.url)
-
-  if (!res.ok) {
-    console.warn('[header] Header inject failed:', res.status, res.url)
-    return
-  }
-
-  host.innerHTML = await res.text()
-  console.log('[header] injected header HTML length:', host.innerHTML.length)
-
-  fixHeaderPaths()
-  setupHeaderInteractions()
-}
-
-// ✅ THIS PART:
+// Run even if loaded after DOMContentLoaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', injectHeader)
 } else {
