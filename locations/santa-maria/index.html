@@ -1,8 +1,41 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="icon" id="site-favicon" />
+    <link rel="stylesheet" id="site-css" />
+    <script>
+      ;(function () {
+        const isGh = location.hostname === 'incrementz.github.io'
+        const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+        const base = isGh ? '/' + repo : ''
+
+        // Set favicon + CSS
+        document.getElementById('site-favicon').href =
+          base + '/assets/da-boo-boos-queen-logo-dog.png'
+        document.getElementById('site-css').href = base + '/styles.css'
+
+        // Load scripts (add/remove as needed)
+        const scripts = [
+          '/js/site-header.js',
+          '/js/toggle.js',
+          '/js/embedBooking.js',
+          '/js/floatButton.js',
+          '/js/allBookTriggers.js',
+          '/js/dropdown.js',
+          '/js/site-footer.js',
+          '/app.js',
+        ]
+
+        scripts.forEach((p) => {
+          const s = document.createElement('script')
+          s.src = base + p
+          s.defer = true
+          document.head.appendChild(s)
+        })
+      })()
+    </script>
     <link rel="icon" href="assets/da-boo-boos-queen-logo-dog.png" />
-    <link rel="stylesheet" href="/styles.css" />
+    <!-- <link rel="stylesheet" href="/styles.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -115,11 +148,13 @@
     <script>
       ;(function () {
         const isGh = location.hostname === 'incrementz.github.io'
-        const base = isGh ? '/' + location.pathname.split('/').filter(Boolean)[0] : ''
-        const s = document.createElement('script')
-        s.src = base + '/js/site-header.js'
-        s.async = false
-        document.head.appendChild(s)
+        const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+        const base = isGh ? '/' + repo : ''
+
+        const m = document.createElement('script')
+        m.type = 'module'
+        m.src = base + '/app.js'
+        document.head.appendChild(m)
       })()
     </script>
   </head>
@@ -396,43 +431,13 @@
       </section>
 
       <!-- ZIP + CONTACT CTA -->
-      <div class="card footer-contact">
-        <h2>Contact Us</h2>
-
-        <p class="muted footer-phone">Phone: <a href="tel:8053161413">805-316-1413</a></p>
-
-        <div class="footer-grid">
-          <!-- <div class="footer-col">
-            <h5>Services</h5>
-            <a href="/services/">Services</a>
-            <a href="/services/pet-waste-removal/">Pet Waste Removal</a>
-            <a href="/services/yard-deodorizing/">Yard Deodorizing</a>
-          </div> -->
-
-          <div class="footer-col">
-            <h5><a href="/locations/">Locations</a></h5>
-            <a href="/locations/san-luis-obispo/">San Luis Obispo</a>
-            <!-- <a href="/locations/arroyo-grande/">Arroyo Grande</a> -->
-          </div>
-
-          <div class="footer-col">
-            <h5><a href="/#about">About</a></h5>
-            <a href="/#reviews">Reviews</a>
-          </div>
-
-          <div class="footer-col">
-            <h5>Resources</h5>
-            <a href="/faq.html">FAQ</a>
-            <!-- <a href="/pricing/">Plans & Pricing</a> -->
-          </div>
-        </div>
-      </div>
+      <div id="site-footer"></div>
     </main>
 
-    <script src="/js/navbar.js" defer></script>
+    <!-- <script src="/js/navbar.js" defer></script>
     <script src="/js/toggle.js" defer></script>
     <script src="/js/embedBooking.js" defer></script>
     <script src="/js/floatButton.js" defer></script>
-    <script src="/js/allBookTriggers.js" defer></script>
+    <script src="/js/allBookTriggers.js" defer></script> -->
   </body>
 </html>

@@ -1,5 +1,5 @@
 function getBasePath() {
-  // Local dev (live-server / localhost): serve from "/"
+  // Local dev: serve from "/"
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
 
   // GitHub Pages project site: "/<repo>"
@@ -20,8 +20,8 @@ function withBase(path) {
   return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`
 }
 
-function fixHeaderPaths() {
-  if (!BASE_PATH) return
+function fixHeaderPaths(root = BASE_PATH) {
+  if (!root) return
 
   document
     .querySelectorAll(
@@ -30,9 +30,14 @@ function fixHeaderPaths() {
     .forEach((el) => {
       const attr = el.hasAttribute('href') ? 'href' : 'src'
       const val = el.getAttribute(attr)
+
+      // only rewrite true root-relative paths (skip "//cdn...")
       if (!val || !val.startsWith('/') || val.startsWith('//')) return
-      if (val.startsWith(BASE_PATH + '/')) return
-      el.setAttribute(attr, BASE_PATH + val)
+
+      // avoid double-prefixing
+      if (val.startsWith(root + '/')) return
+
+      el.setAttribute(attr, root + val)
     })
 }
 
@@ -71,35 +76,20 @@ function setupHeaderInteractions() {
 }
 
 async function injectHeader() {
-  console.log('[header] injectHeader running')
-
   const host = document.querySelector('#site-header')
-  console.log('[header] host:', host)
+  if (!host) return
 
-  if (!host) {
-    console.warn('[header] #site-header not found on page')
-    return
-  }
-
-  const url = withBase('/header.html')
-  console.log('[header] fetching:', url)
-
-  const res = await fetch(url, { cache: 'no-cache' })
-  console.log('[header] fetch status:', res.status, res.url)
-
+  const res = await fetch(withBase('/header.html'), { cache: 'no-cache' })
   if (!res.ok) {
-    console.warn('[header] Header inject failed:', res.status, res.url)
     return
   }
 
   host.innerHTML = await res.text()
-  console.log('[header] injected header HTML length:', host.innerHTML.length)
-
   fixHeaderPaths()
   setupHeaderInteractions()
 }
 
-// ✅ THIS PART:
+// Run even if script loads after DOMContentLoaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', injectHeader)
 } else {

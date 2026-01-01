@@ -2,6 +2,37 @@
 
 <html lang="en">
   <head>
+    <link rel="icon" id="site-favicon" />
+    <link rel="stylesheet" id="site-css" />
+    <script>
+      ;(function () {
+        const isGh = location.hostname === 'incrementz.github.io'
+        const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+        const base = isGh ? '/' + repo : ''
+
+        // Set favicon + CSS
+        document.getElementById('site-favicon').href =
+          base + '/assets/da-boo-boos-queen-logo-dog.png'
+        document.getElementById('site-css').href = base + '/styles.css'
+
+        // Load scripts (add/remove as needed)
+        const scripts = [
+          '/js/site-header.js',
+          '/js/toggle.js',
+          '/js/embedBooking.js',
+          '/js/floatButton.js',
+          '/js/allBookTriggers.js',
+          '/js/dropdown.js',
+        ]
+
+        scripts.forEach((p) => {
+          const s = document.createElement('script')
+          s.src = base + p
+          s.defer = true
+          document.head.appendChild(s)
+        })
+      })()
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Da Boo Boos Queen | Pet Waste Removal in San Luis Obispo County</title>
@@ -21,7 +52,7 @@
     <link rel="preconnect" href="https://app.cal.com" crossorigin />
     <link rel="dns-prefetch" href="//app.cal.com" />
     <link rel="stylesheet" href="https://app.cal.com/embed/embed.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -74,21 +105,18 @@
         ]
       }
     </script>
-<script>
-  console.log('[header] loader running:', location.href)
+    <script>
+      ;(function () {
+        const isGh = location.hostname === 'incrementz.github.io'
+        const repo = location.pathname.split('/').filter(Boolean)[0] || ''
+        const base = isGh ? '/' + repo : ''
 
-  const isGh = location.hostname === 'incrementz.github.io'
-  const repo = location.pathname.split('/').filter(Boolean)[0] || ''
-  const base = isGh ? '/' + repo : ''
-
-  const s = document.createElement('script')
-  s.src = base + '/js/site-header.js'
-  s.async = false
-  s.onload = () => console.log('[header] site-header.js loaded:', s.src)
-  s.onerror = () => console.error('[header] FAILED loading:', s.src)
-  document.head.appendChild(s)
-</script>
-
+        const m = document.createElement('script')
+        m.type = 'module'
+        m.src = base + '/app.js'
+        document.head.appendChild(m)
+      })()
+    </script>
   </head>
 
   <body>
@@ -440,12 +468,12 @@ Pau53, d3ar 3xpl0r3r, b3f0r3 1t'5 700 la73.
       </div>
     </footer>
 
-    <script src="/app.js" defer></script>
+    <!-- <script src="/app.js" defer></script>
     <script src="/js/toggle.js" defer></script>
     <script src="/js/embedBooking.js" defer></script>
     <script src="/js/floatButton.js" defer></script>
     <script src="/js/allBookTriggers.js" defer></script>
     <script src="/js/dropdown.js" defer></script>
-    <script src="/js/site-header.js" defer></script>
+    <script src="/js/site-header.js" defer></script> -->
   </body>
 </html>
