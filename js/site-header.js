@@ -96,3 +96,27 @@ if (document.readyState === 'loading') {
 } else {
   injectHeader()
 }
+
+// site footer
+async function injectInto(hostSelector, url) {
+  const host = document.querySelector(hostSelector)
+  if (!host) return
+  const res = await fetch(withBase(url), { cache: 'no-cache' })
+  if (!res.ok) return
+  host.innerHTML = await res.text()
+}
+
+async function injectShell() {
+  await injectInto('#site-header', '/header.html')
+  fixHeaderPaths()
+  setupHeaderInteractions()
+
+  await injectInto('#site-footer', '/footer.html')
+  fixHeaderPaths()
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', injectShell)
+} else {
+  injectShell()
+}
