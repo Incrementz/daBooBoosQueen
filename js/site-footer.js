@@ -1,6 +1,5 @@
+// Wrapped in a IIFE, could do with site-header
 ;(function () {
-  console.log('[footer] site-footer.js loaded on', location.href)
-
   function detectBaseFromThisScript() {
     const scripts = Array.from(document.scripts)
     const me =
@@ -57,7 +56,6 @@
 
     const res = await fetch(withBase('/footer.html'), { cache: 'no-cache' })
     if (!res.ok) {
-      console.warn('[footer] inject failed:', res.status, res.url)
       return
     }
 

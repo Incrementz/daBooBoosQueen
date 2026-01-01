@@ -81,7 +81,6 @@ async function injectHeader() {
 
   const res = await fetch(withBase('/header.html'), { cache: 'no-cache' })
   if (!res.ok) {
-    console.warn('Header inject failed:', res.status, res.url)
     return
   }
 
