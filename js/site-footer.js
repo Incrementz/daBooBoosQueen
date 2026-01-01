@@ -22,13 +22,18 @@ function fixFooterPaths(root = BASE_PATH) {
   const scope = document.querySelector('#site-footer')
   if (!scope) return
 
-  scope
-    .querySelectorAll('a[href^="/"], img[src^="/"], script[src^="/"], link[href^="/"]')
+  document
+    .querySelectorAll(
+      'header a[href^="/"], header img[src^="/"], header script[src^="/"], header link[href^="/"]'
+    )
     .forEach((el) => {
       const attr = el.hasAttribute('href') ? 'href' : 'src'
       const val = el.getAttribute(attr)
 
+      // only rewrite true root-relative paths (skip "//cdn...")
       if (!val || !val.startsWith('/') || val.startsWith('//')) return
+
+      // avoid double-prefixing
       if (val.startsWith(root + '/')) return
 
       el.setAttribute(attr, root + val)
@@ -36,7 +41,7 @@ function fixFooterPaths(root = BASE_PATH) {
 }
 
 async function injectFooter() {
-  const host = document.querySelector('#site-footer')
+  const host = document.querySelector('.site-footer')
   if (!host) return
 
   const res = await fetch(withBase('/footer.html'), { cache: 'no-cache' })
