@@ -3,11 +3,13 @@ function getBasePath() {
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
 
   // GitHub Pages project site: "/<repo>"
+  // Example: https://incrementz.github.io/daBooBoosQueen/...
   if (location.hostname === 'incrementz.github.io') {
     const first = location.pathname.split('/').filter(Boolean)[0]
     return first ? `/${first}` : ''
   }
 
+  // Custom domain: usually root
   return ''
 }
 
@@ -18,16 +20,13 @@ function withBase(path) {
   return `${BASE_PATH}${path.startsWith('/') ? path : `/${path}`}`
 }
 
-// Rewrite root-relative href/src inside a scope (header/footer)
-// Example: "/locations/" -> "/daBooBoosQueen/locations/"
-function fixRootPaths(scopeSelector, root = BASE_PATH) {
+function fixHeaderPaths(root = BASE_PATH) {
   if (!root) return
 
-  const scope = document.querySelector(scopeSelector)
-  if (!scope) return
-
-  scope
-    .querySelectorAll('a[href^="/"], img[src^="/"], script[src^="/"], link[href^="/"]')
+  document
+    .querySelectorAll(
+      'header a[href^="/"], header img[src^="/"], header script[src^="/"], header link[href^="/"]'
+    )
     .forEach((el) => {
       const attr = el.hasAttribute('href') ? 'href' : 'src'
       const val = el.getAttribute(attr)
@@ -76,30 +75,24 @@ function setupHeaderInteractions() {
   })
 }
 
-async function injectInto(hostSelector, url) {
-  const host = document.querySelector(hostSelector)
+async function injectHeader() {
+  const host = document.querySelector('#site-header')
   if (!host) return
 
-  const res = await fetch(withBase(url), { cache: 'no-cache' })
+  const res = await fetch(withBase('/header.html'), { cache: 'no-cache' })
   if (!res.ok) {
-    console.warn('Inject failed:', res.status, res.url)
+    console.warn('Header inject failed:', res.status, res.url)
     return
   }
 
   host.innerHTML = await res.text()
-}
-
-async function injectShell() {
-  await injectInto('#site-header', '/header.html')
-  fixRootPaths('#site-header')
+  fixHeaderPaths()
   setupHeaderInteractions()
-
-  await injectInto('#site-footer', '/footer.html')
-  fixRootPaths('#site-footer')
 }
 
+// Run even if script loads after DOMContentLoaded
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', injectShell)
+  document.addEventListener('DOMContentLoaded', injectHeader)
 } else {
-  injectShell()
+  injectHeader()
 }
