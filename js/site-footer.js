@@ -41,7 +41,7 @@ function fixFooterPaths(root = BASE_PATH) {
 }
 
 async function injectFooter() {
-  const host = document.querySelector('.site-footer')
+  const host = document.querySelector('#site-footer')
   if (!host) return
 
   const res = await fetch(withBase('/footer.html'), { cache: 'no-cache' })
