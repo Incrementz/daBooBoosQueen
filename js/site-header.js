@@ -74,3 +74,25 @@ function setupHeaderInteractions() {
     toggle.setAttribute('aria-expanded', 'false')
   })
 }
+
+async function injectHeader() {
+  const host = document.querySelector('#site-header')
+  if (!host) return
+
+  const res = await fetch(withBase('/header.html'), { cache: 'no-cache' })
+  if (!res.ok) {
+    console.warn('Header inject failed:', res.status, res.url)
+    return
+  }
+
+  host.innerHTML = await res.text()
+  fixHeaderPaths()
+  setupHeaderInteractions()
+}
+
+// Run even if script loads after DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', injectHeader)
+} else {
+  injectHeader()
+}
