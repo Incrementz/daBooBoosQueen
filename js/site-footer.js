@@ -1,3 +1,4 @@
+console.log('[footer] site-footer.js loaded on', location.href)
 function getBasePath() {
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return ''
 
