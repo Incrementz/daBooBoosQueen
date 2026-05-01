@@ -35,7 +35,7 @@ Cal('init', 'free-first-pet-waste-removal', { origin: 'https://app.cal.com' })
 Cal.ns['free-first-pet-waste-removal']('floatingButton', {
   calLink: 'da-boo-boos-queen-sntbbp/free-first-pet-waste-removal',
   config: { layout: 'month_view' },
-  buttonText: 'Claim My FREE Cleanup',
+  buttonText: 'Schedule FREE Estimate',
   hideButtonIcon: true,
 })
 Cal.ns['free-first-pet-waste-removal']('ui', { hideEventTypeDetails: false, layout: 'month_view' })

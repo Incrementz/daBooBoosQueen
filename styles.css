@@ -421,7 +421,7 @@ radial-gradient(1200px 300px at 80% -10%, rgba(54,71,50,0.08), transparent), */ 
 }
 .price .price-tag {
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--camo);
 }
 .price .currency {
